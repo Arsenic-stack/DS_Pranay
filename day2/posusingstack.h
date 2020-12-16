@@ -3,9 +3,9 @@
 #include <stdio.h>
 #define MAX 100
 int top = -1;
-char STACK[MAX];
+int STACK[MAX];
 
-char pop()
+int pop()
 {
     if (top == -1)
     {
@@ -14,7 +14,7 @@ char pop()
     }
     return STACK[top--];
 }
-void push(char data)
+void push(int data)
 {
     if (top == MAX - 1)
     {
