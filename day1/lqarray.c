@@ -7,8 +7,10 @@ void enq(int data)
 {
     if (front == -1 && rear == -1)
         (QUEUE[++front] = data) && ++rear;
-    else
+    else if ((rear+1)<MAX)
         QUEUE[++rear] = data;
+    else 
+        printf("Queue is full\n");
 }
 int deq()
 {
