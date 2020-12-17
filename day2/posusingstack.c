@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <ctype.h>
 #include "posusingstack.h"
 int total = 0;
