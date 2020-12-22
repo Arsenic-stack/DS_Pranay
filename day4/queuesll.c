@@ -33,6 +33,7 @@ int dequeue()
         node *toFree = head;
         int toReturn = head->data;
         head = head->next;
+        free(toFree);
         return toReturn;
     }
 }
@@ -50,14 +51,22 @@ void display()
 }
 int main(int argc, char const *argv[])
 {
-    for (int i = 0; i < 4; i++)
-        enqueue(i * 10);
-    display();
-    printf("dequeued %d\n", dequeue());
-    for (int i = 4; i < 8; i++)
-        enqueue(i * 10);
-    display();
-    printf("dequeued %d\n", dequeue());
-    display();
+    int CASE = 10;
+    while (CASE != 4)
+    {
+        printf("Choose an option \n1)enqueue\n2)dequeue\n3)display\n4)exit\n");
+        scanf("%d", &CASE);
+        if (CASE == 1)
+        {
+            printf("Enter the data to push : ");
+            int data;
+            scanf("%d", &data);
+            enqueue(data);
+        }
+        else if (CASE == 2)
+            printf("Dequeued %d\n", dequeue());
+        else if (CASE == 3)
+            display();
+    }
     return 0;
 }

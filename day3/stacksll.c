@@ -10,7 +10,7 @@ node *head = NULL;
 void push(int data)
 {
     node *temp = malloc(sizeof(node));
-    temp->data=data;
+    temp->data = data;
     if (!head)
         head = temp;
     else
@@ -47,12 +47,22 @@ void display()
 
 int main(int argc, char const *argv[])
 {
-    for (int i = 0; i < 4; i++)
-        push(i * 10);
-    display();
-    printf("\npopped %d", pop());
-    for (int i = 4; i < 8; i++)
-        push(i * 10);
-    display();
+    int CASE = 10;
+    while (CASE != 4)
+    {
+        printf("Choose an option \n1)push\n2)pop\n3)display\n4)exit\n");
+        scanf("%d", &CASE);
+        if (CASE == 1)
+        {
+            printf("Enter the data to push : ");
+            int data;
+            scanf("%d", &data);
+            push(data);
+        }
+        else if (CASE == 2)
+            printf("popped %d\n", pop());
+        else if (CASE == 3)
+            display();
+    }
     return 0;
 }

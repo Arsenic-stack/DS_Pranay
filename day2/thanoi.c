@@ -13,7 +13,9 @@ void thanoi(int n, char frompeg, char topeg, char auxpeg)
 }
 int main(int argc, char const *argv[])
 {
-    int n = 10;
+    int n;
+    printf("Enter the number of disks");
+    scanf("%d", &n);
     thanoi(n, 'A', 'B', 'C');
     return 0;
 }

@@ -15,7 +15,7 @@ int pop()
 {
     if (top == -1)
     {
-        printf("empty\n");
+        printf("Queue is empty\n");
         return __INT32_MAX__;
     }
     return STACK[top--];
@@ -31,13 +31,22 @@ void display()
 }
 int main(int argc, char const *argv[])
 {
-    push(10);
-    push(20);
-    push(30);
-    display();
-    printf("\npopped %d\n", pop());
-    display();
-    push(40);
-    display();
+    int CASE = 10;
+    while (CASE != 4)
+    {
+        printf("Choose an option \n1)push\n2)pop\n3)display\n4)exit\n");
+        scanf("%d", &CASE);
+        if (CASE == 1)
+        {
+            printf("Enter the data to push : ");
+            int data;
+            scanf("%d", &data);
+            push(data);
+        }
+        else if (CASE == 2)
+            printf("Dequeued %d\n", pop());
+        else if (CASE == 3)
+            display();
+    }
     return 0;
 }

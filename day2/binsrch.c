@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 int binSrch(int arr[], int l, int r, int val)
 {
     if (r >= l)
@@ -14,12 +15,21 @@ int binSrch(int arr[], int l, int r, int val)
 }
 int main(int argc, char const *argv[])
 {
-    int arr[] = {5, 6, 7, 24, 35, 45, 75, 76, 356, 456, 3576, 45376};
-    int found = binSrch(arr, 0, sizeof(arr) / sizeof(int), 7);
+    int n;
+    printf("Enter the number of elements in array : ");
+    scanf("%d", &n);
+    int arr[n];
+    printf("Enter the elements : ");
+    for (int i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+    int to_search;
+    printf("Enter the element to search : ");
+    scanf("%d", &to_search);
+    int found = binSrch(arr, 0, n, to_search);
     if (found == -1)
-        printf("\nnot found\n");
+        printf("\nDidn't find %d\n", to_search);
     else
-        printf("\nfound at %d\n", found);
+        printf("\nFound %d at %d\n", to_search, found);
 
     return 0;
 }
