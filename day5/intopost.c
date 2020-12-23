@@ -99,7 +99,8 @@ int main()
 {
     printf("ASSUMPTION: The infix expression contains single letter variables and single digit constants only.\n");
     printf("\nEnter Infix expression : ");
-    fgets(INFIX, SIZE, stdin);
+    scanf("%s",INFIX); 
+//   fgets(INFIX, SIZE, stdin);
     infix_to_postfix();
     printf("Postfix Expression: ");
     puts(POSTFIX);
