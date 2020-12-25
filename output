@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+
+import re
+import os
+import glob
+
+listdir = os.listdir()
+
+regex = re.compile("day*")
+
+srcdirs = [x for x in listdir if regex.match(x)]
+print(srcdirs)
+for srcdir in srcdirs:
+    print(srcdir)
+    os.chdir(srcdir)
+    listfiles = os.listdir()
+    print(listfiles)
+    cfiles = glob.glob("*.c")
+    print(cfiles)
+    for cfile in cfiles:
+        output = cfile.split(".")[0]
+        os.system(f"gcc {cfile} -o ../build/{output} -lm")
+    os.chdir("..")

@@ -55,10 +55,10 @@ int main(int argc, char const *argv[])
             printf("Enter the data to push : ");
             int data;
             scanf("%d", &data);
-            enqueue(data);
+            push(data);
         }
         else if (CASE == 2)
-            printf("Dequeued %d\n", dequeue());
+            reverse();
         else if (CASE == 3)
             display();
     }

@@ -33,7 +33,7 @@ void insert(int data, int priority)
         traverse->next = temp;
     }
 }
-int remove()
+int removeNode()
 {
     if (!head)
     {
@@ -72,7 +72,7 @@ int main(int argc, char const *argv[])
             insert(data,priority);
         }
         else if (CASE == 2)
-            printf("Dequeued %d\n", remove());
+            printf("Dequeued %d\n", removeNode());
         else if (CASE == 3)
             display();
     }
