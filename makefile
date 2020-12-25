@@ -1,5 +1,5 @@
 all: output 
-	mkdir -p build
-	./output
+	@mkdir -p build
+	@./output
 clean:
-	rm -rfv build	
+	@rm -rfv build	

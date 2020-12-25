@@ -70,7 +70,7 @@ int main(int argc, char const *argv[])
         scanf("%d", &CASE);
         if (CASE == 1)
         {
-            printf("Enter the data to push : ");
+            printf("Enter the data to enqueue : ");
             int data;
             scanf("%d", &data);
             enqueue(data);
