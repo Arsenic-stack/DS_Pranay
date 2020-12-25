@@ -47,7 +47,10 @@ void display()
 {
     node *temp = head;
     printf("Displaying\n");
-    printf("%d ", temp->data);
+    if (temp)
+        printf("%d ", temp->data);
+    else
+        printf("Stack is empty");
     while (temp != tail)
     {
         printf("%d ", temp->next->data);
