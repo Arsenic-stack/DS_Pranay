@@ -17,13 +17,11 @@ void insert(int data)
     temp->data = data;
     if (head == null)
     {
-        temp->next = head;
         head = temp;
         tail = temp;
     }
     else
     {
-        node *traverse = head;
         if (data > head->data)
         {
             temp->next = head;
@@ -33,6 +31,7 @@ void insert(int data)
 
         else
         {
+            node *traverse = head;
             while (traverse->next && traverse->next->data > data)
                 traverse = traverse->next;
             temp->next = traverse->next;
@@ -67,10 +66,21 @@ void displayBack()
     }
     printf("\n");
 }
+void tests()
+{
+    insert(10);
+    insert(200);
+    insert(35);
+    insert(1);
+    insert(56);
+    display();
+    displayBack();
+    exit(0);
+}
 
 int main(int argc, char const *argv[])
 {
-    // tests();
+    tests();
     int CASE = 10;
     while (CASE != 4)
     {
@@ -90,14 +100,3 @@ int main(int argc, char const *argv[])
     }
     return 0;
 }
-// void tests()
-// {
-//     insert(10);
-//     insert(200);
-//     insert(35);
-//     insert(1);
-//     insert(56);
-//     display();
-//     displayBack();
-//     exit(0);
-// }

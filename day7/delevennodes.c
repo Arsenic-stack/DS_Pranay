@@ -8,19 +8,22 @@ typedef struct node
 } node;
 
 node *head;
+node *tail;
 
 void insert(int data)
 {
     node *link = malloc(sizeof(node));
     link->data = data;
     if (head == null)
+    {
         head = link;
+        tail = link;
+    }
     else
     {
-        node *temp = head;
-        while (temp->next)
-            temp = temp->next;
-        temp->next = link;
+        node *temp = tail;
+        tail->next = link;
+        tail = tail->next;
     }
 }
 
