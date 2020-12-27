@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node
@@ -32,37 +31,31 @@ node *create()
 
 void preorder(node *t)
 {
-    printf("\nThe preorder traversal of tree is:\n");
     if (t != NULL)
     {
         printf("%d ", t->data);
         preorder(t->left);
         preorder(t->right);
     }
-    printf("\n");
 }
 void postorder(node *t)
 {
-    printf("\nThe postorder traversal of tree is:\n");
     if (t != NULL)
     {
         postorder(t->left);
         postorder(t->right);
         printf("%d ", t->data);
     }
-    printf("\n");
 }
 
 void inorder(node *t)
 {
-    printf("\nThe inorder traversal of tree is: \n");
     if (t != NULL)
     {
         inorder(t->left);
         printf("%d ", t->data);
         inorder(t->right);
     }
-    printf("\n");
 }
 void tests()
 {
@@ -84,15 +77,22 @@ int main(int argc, char const *argv[])
         printf("Choose an option \n1)create tree \n2)preorder \n3)inorder \n4)postorder \n5)exit\n");
         scanf("%d", &CASE);
         if (CASE == 1)
-        {
             root = create();
-        }
         else if (CASE == 2)
+        {
+            printf("\nThe preorder traversal of tree is:\n");
             preorder(root);
+        }
         else if (CASE == 3)
+        {
+            printf("\nThe inorder traversal of tree is: \n");
             inorder(root);
+        }
         else if (CASE == 4)
+        {
+            printf("\nThe postorder traversal of tree is:\n");
             postorder(root);
+        }
     }
     return 0;
 }
