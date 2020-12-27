@@ -50,7 +50,7 @@ void insertAny(int data, int pos)
 }
 void deleteAny(int pos)
 {
-    if ((length-1 < pos) || (length == 0))
+    if ((length - 1 < pos) || (length == 0))
     {
         printf("Cant delete , list length is %d but the position you wanted to delete was %d\n", length, pos);
         return;
@@ -72,6 +72,7 @@ void deleteAny(int pos)
         tail->next = head;
         free(toFree);
         length = -1;
+        return;
     }
     else
     {

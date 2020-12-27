@@ -1,12 +1,12 @@
 #include <stdio.h>
-#define SIZE 100
-#define bool _Bool
-char STACK[SIZE];
-int top = -1;
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
+#define SIZE 100
+#define bool _Bool
+char STACK[SIZE];
+int top = -1;
 
 char INFIX[SIZE], POSTFIX[SIZE];
 
@@ -25,6 +25,7 @@ int get_precedence(char x)
         return 3;
     else if (x == '^')
         return 4;
+    return -1;
 }
 
 void push(char data)
@@ -99,8 +100,8 @@ int main()
 {
     printf("ASSUMPTION: The infix expression contains single letter variables and single digit constants only.\n");
     printf("\nEnter Infix expression : ");
-    scanf("%s",INFIX); 
-//   fgets(INFIX, SIZE, stdin);
+    scanf("%s", INFIX);
+    //   fgets(INFIX, SIZE, stdin);
     infix_to_postfix();
     printf("Postfix Expression: ");
     puts(POSTFIX);
