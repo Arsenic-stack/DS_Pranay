@@ -1,93 +1,94 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 5
-void insert(int);
-void delete (int);
-void init();
-void put(int);
-void display();
-int pri_que[MAX];
-int front, rear;
-void init()
+#define MAX 20
+
+int rear = -1;
+int front = -1;
+int arr[MAX];
+
+int isempty()
 {
-    front = rear = -1;
+    return (front == -1 || front > rear) ? 1 : 0;
 }
-void insert(int data)
+
+int isfull()
 {
-    if (rear > MAX - 1)
+    return (rear == MAX - 1) ? 1 : 0;
+}
+
+void enqueue(int data)
+{
+    if (isfull())
+        printf("\nQueue Overflow\n");
+    if (front == -1)
+        front = 0;
+    int j = rear;
+    while (j >= 0 && data < arr[j])
     {
-        return;
+        arr[j + 1] = arr[j];
+        j--;
     }
-    if (front == -1 && rear == -1)
+    arr[j + 1] = data;
+    rear++;
+}
+
+int dequeue()
+{
+    if (isempty())
     {
-        front++;
-        rear++;
-        pri_que[rear] = data;
-        return;
+        printf("\nQueue Unerflow\n");
+        front = -1;
+        rear = -1;
+    }
+    int data = arr[front++];
+    return data;
+}
+
+void display()
+{
+    int i = 0;
+    if (isempty())
+    {
+        printf("\nQueue Underflow\n");
     }
     else
     {
-        put(data);
-        rear++;
-    }
-}
-void put(int data)
-{
-    int i, j;
-    for (i = 0; i <= rear; i++)
-        if (data >= pri_que[i])
+        printf("\nThe elements are : ");
+        for (i = front; i <= rear; i++)
         {
-            for (j = rear + 1; j > i; j--)
-                pri_que[j] = pri_que[j - 1];
-            pri_que[i] = data;
-            return;
-        }
-    pri_que[i] = data;
-}
-void delete (int data)
-{
-    int i;
-    if ((front == -1) && (rear == -1))
-    {
-        printf("\nQueue is empty no elements to delete");
-        return;
-    }
-    for (i = 0; i <= rear; i++)
-    {
-        if (data == pri_que[i])
-        {
-            for (; i < rear; i++)
-            {
-                pri_que[i] = pri_que[i + 1];
-            }
-            pri_que[i] = -99;
-            rear--;
-            if (rear == -1)
-                front = -1;
-            return;
+            printf("%d ", arr[i]);
         }
     }
-    printf("\n%d not found in queue to delete", data);
-}
-void display()
-{
-    if ((front == -1) && (rear == -1))
-    {
-        printf("\nQueue is empty");
-        return;
-    }
-    for (front = front; front <= rear; front++)
-        printf(" %d ", pri_que[front]);
-    front = 0;
 }
 
 int main()
 {
-    insert(60);
-    insert(30);
-    insert(20);
-    insert(40);
-    insert(50);
-    display();
+    int x, ch;
+    while (1)
+    {
+        printf("\n1. Enqueue");
+        printf("\n2. Dequeue");
+        printf("\n3. Display");
+        printf("\nAny other number to exit");
+        printf("\nEnter your choice : ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+        case 1:
+            printf("\nEnter the element to be inserted : ");
+            scanf("%d", &x);
+            enqueue(x);
+            break;
+        case 2:
+            printf("\nThe element being deleted is : %d\n", dequeue());
+            break;
+        case 3:
+            display();
+            break;
+        default:
+            exit(0);
+        }
+    }
     return 0;
 }

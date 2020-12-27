@@ -88,7 +88,7 @@ int main(int argc, char const *argv[])
         scanf("%d", &CASE);
         if (CASE == 1)
         {
-            printf("Enter the data insert : ");
+            printf("Enter the data to insert : ");
             int data;
             scanf("%d", &data);
             insert(data);

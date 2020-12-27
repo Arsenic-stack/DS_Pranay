@@ -2,6 +2,16 @@
     "files.associations": {
         "istream": "c",
         "streambuf": "c",
-        "*.inc": "c"
+        "*.inc": "c",
+        "cmath": "c",
+        "*.tcc": "c",
+        "type_traits": "c",
+        "cctype": "c",
+        "cstdarg": "c",
+        "cstdio": "c",
+        "cstdlib": "c",
+        "limits": "c",
+        "cstdint": "c",
+        "typeinfo": "c"
     }
 }

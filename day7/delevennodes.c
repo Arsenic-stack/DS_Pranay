@@ -27,7 +27,7 @@ void insert(int data)
     }
 }
 
-void print()
+void display()
 {
     node *temp = head;
     while (temp)
@@ -57,9 +57,9 @@ void tests()
     insert(5);
     insert(6);
     insert(7);
-    print();
+    display();
     removeven(head);
-    print();
+    display();
     exit(0);
 }
 
@@ -79,7 +79,7 @@ int main(int argc, char const *argv[])
             insert(data);
         }
         else if (CASE == 2)
-            print();
+            display();
         else if (CASE == 3)
             removeven(head);
     }
