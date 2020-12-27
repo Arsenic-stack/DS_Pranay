@@ -79,8 +79,6 @@ void deleteAny(int pos)
             traverse->prev->next = traverse->next;
         if (traverse->next)
             traverse->next->prev = traverse->prev;
-        while (traverse->next)
-            traverse = traverse->next;
         free(toFree);
     }
     length--;
