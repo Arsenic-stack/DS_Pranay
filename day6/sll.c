@@ -76,9 +76,24 @@ void display()
     }
     printf("\n");
 }
+void tests()
+{
+    insertAny(10, 0);
+    insertAny(20, 0);
+    insertAny(30, 1);
+    insertAny(40, 3);
+    deleteAny(3);
+    deleteAny(2);
+    display();
+    deleteAny(1);
+    deleteAny(0);
+    display();
+    exit(0);
+}
 
 int main()
 {
+    tests();
     int CASE = 10;
     while (CASE != 4)
     {

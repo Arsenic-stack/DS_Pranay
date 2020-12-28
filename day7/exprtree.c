@@ -5,7 +5,7 @@
 typedef struct tree
 {
     char data;
-    tree *left, *right;
+    struct tree *left, *right;
 } tree;
 
 int top = -1;

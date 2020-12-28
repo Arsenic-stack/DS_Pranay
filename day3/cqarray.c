@@ -1,7 +1,7 @@
 #include <stdio.h>
 int front = -1, rear = -1;
-#define SIZE 10
-int CQUEUE[100];
+#define SIZE 5
+int CQUEUE[SIZE];
 int isFull()
 {
   if ((rear == (front - 1) % (SIZE - 1)) || (front == 0 && rear == SIZE - 1))
